@@ -20,10 +20,28 @@ const listingSchema=new Schema({
             type:Schema.Types.ObjectId,
             ref:"Review"
         }
-    ],
+    ]
+    ,
+
+    category:{
+        type:String,
+        required:true,
+        enum: [
+            'trending',       // Matches "Trending"
+            'rooms',          // Matches "Rooms"
+            'iconic-cities',  // Matches "Iconic Cities"
+            'mountains',      // Matches "Mountains"
+            'castles',        // Matches "Castles"
+            'amazing-pools',  // Matches "Amazing pools"
+            'camping',        // Matches "Camping"
+            'farm',           // Matches "Farm"
+            'arctic'          // Matches "Arctic"
+        ]
+    },
     owner:{
             type:Schema.Types.ObjectId,
             ref:"User"
+    
     },
     geometry:{
         type:{
@@ -36,7 +54,7 @@ const listingSchema=new Schema({
         required:true
     }
 }
-})
+});
 
 listingSchema.post("findOneAndDelete",async(listing)=>{
     if(listing){

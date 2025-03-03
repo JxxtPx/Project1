@@ -30,6 +30,9 @@ router.route("/:id")
 .delete(isLoggedIn,wrapAsync(listingcontroller.destroyeListing));
 
 
+router.get("/category/:category", wrapAsync(listingcontroller.filterByCategory));
+
+
 
 //NEW ROUTE
 

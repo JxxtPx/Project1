@@ -29,123 +29,156 @@
         } */
 
 
+#filters {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+    overflow-x: auto; /* Makes it horizontally scrollable */
+    white-space: nowrap; /* Ensures filters stay in a single row */
+    scrollbar-width: thin; /* For Firefox */
+    -ms-overflow-style: none; /* For IE/Edge */
+}
 
-        #filters {
-        display: flex;
-        gap: 1rem;
-        padding: 0.5rem;
-        overflow-x: auto; /* Makes it horizontally scrollable */
-        white-space: nowrap; /* Ensures filters stay in a single row */
-        scrollbar-width: thin; /* For Firefox */
-        -ms-overflow-style: none; /* For IE/Edge */
-    }
+#filters::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome/Safari */
+}
 
-    #filters::-webkit-scrollbar {
-        display: none; /* Hides scrollbar in Chrome/Safari */
-    }
+#filters a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: inherit; /* Keeps the text color of the parent */
+}
 
-    .filter {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-width: 80px;
-        opacity: 0.75;
-    }
+.filter {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    opacity: 0.75;
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
 
-    .filter:hover {
-        opacity: 1;
-        cursor: pointer;
-    }
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
 
-    .filter p {
-        font-size: 0.8rem;
-        margin: 0;
-    }
+.filter p {
+    font-size: 0.8rem;
+    margin: 0;
+    text-align: center;
+}
 
-    .tax-toggles {
-        margin-left: auto;
-        white-space: nowrap;
-    }
-    .tax-info{
-        display: none;
-    }
-    .tax-toggles{
-        border: 1px solid black;
-        border-radius: 1rem;
-        height: 3.2rem;
-        padding: 1rem;
-        display: flex;
-        align-items:center ;
-    }
-    .toggle .form-check-input:checked {
+.filter:hover p {
+    text-decoration: underline;
+    
+}
+
+.tax-toggles {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.tax-toggles {
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 3.2rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.toggle .form-check-input:checked {
     background-color: #fe424d;
     border-color: rgb(255, 255, 255);
-    }
-    .toggle .form-check-input:focus {
+}
+
+.toggle .form-check-input:focus {
     box-shadow: none;
     outline: #fe424d;
+}
+
+/* On larger screens, allow wrapping so they look like a grid */
+@media (min-width: 768px) {
+    #filters {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        white-space: normal;
     }
+}
 
-
-
-    /* On larger screens, allow wrapping so they look like a grid */
-    @media (min-width: 768px) {
-        #filters {
-            flex-wrap: wrap;
-            overflow-x: visible;
-            white-space: normal;
-        }
-    }
     </style>
 
-    <div class="container mt-3">
+ <div class="container mt-3">
 
     <div id="filters">
         <div class="filter">
-            <div><i class="fa-solid fa-fire-flame-curved"></i></div>
-           <p> Trending</p>
+            <a href="/listings/category/trending" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-solid fa-fire-flame-curved"></i></div>
+                <p>Trending</p>
+            </a>
         </div>
         <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-           <p> Rooms</p>
+            <a href="/listings/category/rooms" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </a>
         </div>
         <div class="filter">
-            <div><i class="fa-solid fa-mountain-city"></i></div>
-           <p> Iconic cities</p>
+            <a href="/listings/category/iconic-cities" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic Cities</p>
+            </a>
         </div>
         <div class="filter">
-            <div><i class="fa-solid fa-mountain-sun"></i></div>
-           <p> Mountains</p>
+            <a href="/listings/category/mountains" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-solid fa-mountain-sun"></i></div>
+                <p>Mountains</p>
+            </a>
         </div>
         <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i> </div>
-           <p> Castles</p>
+            <a href="/listings/category/castles" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <p>Castles</p>
+            </a>
         </div>
         <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></i></div>
-           <p> Amazing pools</p>
+            <a href="/listings/category/amazing-pools" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <p>Amazing Pools</p>
+            </a>
         </div>
         <div class="filter">
-            <div><i class="fa-solid fa-tent"></i></div>
-           <p>Camping</p>
+            <a href="/listings/category/camping" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-solid fa-tent"></i></div>
+                <p>Camping</p>
+            </a>
         </div>
         <div class="filter">
-            <div><i class="fa-solid fa-cow"></i></div>
-           <p>Farm</p>
+            <a href="/listings/category/farm" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-solid fa-cow"></i></div>
+                <p>Farm</p>
+            </a>
         </div>
         <div class="filter">
-            <div><i class="fa-solid fa-snowflake"></i></div>
-           <p> Arctic</p>
+            <a href="/listings/category/arctic" style="text-decoration: none; color: inherit;">
+                <div><i class="fa-solid fa-snowflake"></i></div>
+                <p>Arctic</p>
+            </a>
         </div>
+    
         <div class="tax-toggles">
             <div class="form-check-reverse form-switch toggle">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
-              </div>
+            </div>
         </div>
-
     </div>
+    
 </div>
 
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">

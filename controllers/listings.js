@@ -38,12 +38,15 @@ module.exports.createListing = async (req, res, next) => {
     let url = req.file.path;
     let filename = req.file.filename;
     const newListing = new Listing(req.body.listing);
+    newListing.category=req.body.listing.category;
     newListing.owner = req.user._id;
     newListing.image = { url, filename }
     console.log(req.file,"--",req.file.filename)
     newListing.geometry=response.body.features[0].geometry
     let savedListing=await newListing.save();
     console.log(savedListing)
+    console.log("Incoming Form Data:", req.body);
+
 
     req.flash("Success", "New Listing Created");
     res.redirect("/listings")
@@ -78,6 +81,19 @@ module.exports.updateListing = async (req, res) => {
 
     res.redirect(`/listings/${id}`)
 }
+
+
+module.exports.filterByCategory = async (req, res) => {
+    const { category } = req.params;
+    try {
+        const filteredListings = await Listing.find({ category: category });
+        res.render("listings/index.ejs", { allListings: filteredListings });
+    } catch (error) {
+        req.flash("error", "Could not fetch listings for this category.");
+        res.redirect("/listings");
+    }
+};
+
 
 
 

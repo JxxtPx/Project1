@@ -114,6 +114,12 @@ body{
     display: flex;
     /* flex-direction: row; */
 }
+/* @media screen {
+    .btns{
+        display: flex;
+        flex-direction: column;
+    }
+} */
 
 .show-card{
     padding-left: 0 ;
@@ -192,5 +198,9 @@ body{
     body.navbar-expanded .container {
         padding-top: 5rem; /* Adjust 200px if needed depending on how many items are in your navbar */
         transition: padding-top 0.3s ease;
+    }
+    #map{
+        height: 300px;
+        width: 100%;
     }
 }
