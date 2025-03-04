@@ -94,9 +94,6 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.get("/", (req, res) => {
-    res.render("listings/index.ejs");  // This will render views/index.ejs
-});
 
 
 app.use("/listings",listingsRouter)
@@ -112,6 +109,7 @@ app.all("*",(req,res,next)=>{
 
 app.use((err,req,res,next)=>{
     let{status=500,message="Some error accoured"}=err;
+    console.log(err)
     res.status(status).render("error.ejs",{message})
 })
 

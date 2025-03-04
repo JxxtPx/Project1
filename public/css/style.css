@@ -50,6 +50,7 @@ body{
 .f-info-socials i{
     font-size: 1.2rem;
     margin-right: 1rem;
+    color: #222222;
 }
 
 
@@ -181,7 +182,7 @@ body{
 
 #map{
     height: 400px;
-    width: 80vh;
+    width: 100%;
 }
 
 
