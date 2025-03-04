@@ -109,7 +109,6 @@ app.all("*",(req,res,next)=>{
 
 app.use((err,req,res,next)=>{
     let{status=500,message="Some error accoured"}=err;
-    console.log(err)
     res.status(status).render("error.ejs",{message})
 })
 
