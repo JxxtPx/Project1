@@ -94,6 +94,9 @@ app.use((req,res,next)=>{
     next();
 })
 
+app.get("/", (req, res) => {
+    res.render("index");  // This will render views/index.ejs
+});
 
 
 app.use("/listings",listingsRouter)
