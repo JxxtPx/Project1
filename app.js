@@ -95,7 +95,7 @@ app.use((req,res,next)=>{
 })
 
 app.get("/", (req, res) => {
-    res.render("index");  // This will render views/index.ejs
+    res.render("listings/index.ejs");  // This will render views/index.ejs
 });
 
 
